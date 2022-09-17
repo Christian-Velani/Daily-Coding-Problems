@@ -18,20 +18,14 @@ if mensagem[0] != '0':
     multiplicador = 2
     auxiliar = 1
 for i in range(len(lista_duplas)):
-    print(f'i: {i}')
     o = i + 1
-    print(f'o: {o}')
     fator = len(lista_duplas) - o - 1
-    print(f'fator: {fator}')
     if fator >= 0:
         if i == 0 or i == 1:
             numero_solucoes += fator
-            print(f'solucoes: {numero_solucoes}')
         else:
             numero_solucoes += fator * multiplicador
-            print(f'solucoes: {numero_solucoes}')
             auxiliar, multiplicador = multiplicador, multiplicador + auxiliar
-            print(f'auxiliar: {auxiliar}, multiplicador: {multiplicador}')
 
 print(numero_solucoes)
 print(lista_duplas)
