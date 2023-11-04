@@ -53,13 +53,13 @@ No Desserializar(string noSerializado, char separador)
     return no;
 
 }
-string MostrarArvore(No no)
+string MostrarArvore(No no, int nivel = 0)
 {
-    return (
-        @$"
-                                                                      {no.raiz}
-                                                                     ↙         ↘
-{(no.esquerda != null ? MostrarArvore(no.esquerda) : "Vazio")}           {(no.direita != null ? MostrarArvore(no.direita) : "Vazio")}");
+    if (nivel == 0)
+    {
+        nivel = 1;
+    }
+    return ($"Raiz - Nível {nivel}: {no.raiz}\n" + $"Nó esquerdo - Nível {nivel}: {(no.esquerda != null ? MostrarArvore(no.esquerda, nivel + 1) : "Vazio")}\n" + $"Nó direita - Nível {nivel}: {(no.direita != null ? MostrarArvore(no.direita, nivel + 1) : "Vazio")}");
 }
 No no = new("raiz", new No("esquerda", new No("esquerda.esquerda")), new No("direita"));
 string noSerializado = Serializar(no, '-');
